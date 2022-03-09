@@ -88,4 +88,22 @@ for (let index = 0; index < numbers.length; index++){
 
 console.log(lowerValue);
 
+//Exercício 8
 
+let values = [];
+
+for(let index = 1; index <= 25; index++){
+    values.push(index);
+}
+
+console.log(values);
+
+//Exercício 8
+
+let dividedValue = [];
+
+for(let index2 = 0; index2 < values.length; index2++){
+    dividedValue.push((values[index2]/2))
+}
+
+console.log(dividedValue);
