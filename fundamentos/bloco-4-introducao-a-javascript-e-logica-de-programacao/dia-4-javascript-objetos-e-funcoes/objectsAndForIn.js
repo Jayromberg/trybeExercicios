@@ -17,14 +17,14 @@ console.log('');
 
 // 3 - Faça um for/in que mostre todas as chaves do objeto.
 
-for(let key in info){
+for (let key in info) {
     console.log(key);
 }
 console.log('');
 
 // 4 - Faça um novo for/in , mas agora mostre todos os valores das chaves do objeto.
 
-for(let key in info){
+for (let key in info) {
     console.log(info[key]);
 }
 console.log('');
@@ -33,6 +33,24 @@ console.log('');
 // 'Tio Patinhas', 'Christmas on Bear Mountain, Dell's Four Color Comics #178', 'O último MacPatinhas', 'Sim'.
 //  Então, imprima os valores de cada objeto juntos de acordo com cada uma das chaves. 
 
+let info2 = {
+    personagem: "Tio Patinhas",
+    origem: "Pato Christmas on Bear Mountain, Dell's Four Color Comics #178",
+    nota: "O último MacPatinhas",
+    recorrente: "Sim",
+};
+
+for (let key in info) {
+    if (info[key] !== info2[key]) {
+        console.log(info[key] + " e " + info2[key]);
+    }
+    else{
+        console.log("Ambos", key + "s");
+    }
+}
+console.log('');
+
+
 // 6 - Acesse as chaves nome , sobrenome e titulo , que está dentro da chave livrosFavoritos , e faça um console.log no seguinte formato: "O livro favorito de Julia Pessoa se chama 'O Pior Dia de Todos'".
 
 let leitor = {
@@ -40,20 +58,20 @@ let leitor = {
     sobrenome: 'Pessoa',
     idade: 21,
     livrosFavoritos: [
-      {
-        titulo: 'O Pior Dia de Todos',
-        autor: 'Daniela Kopsch',
-        editora: 'Tordesilhas',
-      },
+        {
+            titulo: 'O Pior Dia de Todos',
+            autor: 'Daniela Kopsch',
+            editora: 'Tordesilhas',
+        },
     ],
-  };
+};
 
 // 7 - Adicione um novo livro favorito na chave livrosFavoritos , que é um array . Atribua a esta chave um objeto contendo as seguintes informações:
 
 {
     titulo: 'Harry Potter e o Prisioneiro de Azkaban',
-    autor: 'JK Rowling',
-    editora: 'Rocco',
+        autor: 'JK Rowling',
+            editora: 'Rocco',
 }
 
 // 8 - Acesse as chaves nome e livrosFavoritos e faça um console.log no seguinte formato: "Julia tem 2 livros favoritos".
