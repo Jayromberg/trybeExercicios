@@ -24,6 +24,7 @@ console.log(invertedWord);
 
 let array = ['java', 'javascript', 'python', 'html', 'css'];
 let biggestWord = array[0];
+let smallestWord = array[0];
 
 for (index = 1; index < array.length; index++) {
     if (biggestWord.length < array[index].length) {
@@ -31,34 +32,30 @@ for (index = 1; index < array.length; index++) {
     }
 }
 
-console.log(biggestWord);
-
-let array = ['java', 'javascript', 'python', 'html', 'css'];
-let smallestWord = array[0];
-
 for (index = 1; index < array.length; index++) {
     if (smallestWord.length > array[index].length) {
         smallestWord = array[index];
     }
 }
 
+console.log(biggestWord);
 console.log(smallestWord);
 
 //Exercício 4
 
-let primeNumber = 2;
-let primeArray = [];
+let primeNumbers = 0;
+let result = 0;
 
-for (index = 2; index <= 50; index++) {
-    for (index2 = 1; index2 < index; index2++) {
-        if (index % index2 === 0) {
-            let counter = 0;
-            counter++;
-            if(counter === 0){
-                primeArray.push(index);
-            }
+for(index = 2; index <= 50; index++){
+    result = 0;
+    for(index2 = 1; index2 <= index; index2++){
+        if(index % index2 === 0){
+            result++;
         }
+    }
+    if(result === 2){
+        primeNumbers = index;
     }
 }
 
-console.log(primeArray);
+console.log(primeNumbers);
