@@ -57,16 +57,40 @@ function friday(sextaFeiraDoMes) {
 
 //Exercício 2
 
-function buttonCreate (parent, nomeDoButton, nomeDoStyle){
+function buttonCreate(parent, nomeDoButton, nomeDaId) {
     let buttonSelector = document.querySelector(parent);
     let buttonCreate = document.createElement('button');
     buttonCreate.innerText = nomeDoButton;
-    buttonCreate.id = nomeDoStyle
+    buttonCreate.id = nomeDaId
     buttonSelector.appendChild(buttonCreate);
 }
+
+//Exercício 3
+
+
 
 //Execução das funções
 
 daysAndHoliday(2, [24, 25, 31]);
 friday([4, 11, 18, 25]);
 buttonCreate('.buttons-container', 'Feriados', 'btn-holiday');
+
+
+
+
+function holidayColor() {
+    let holidaySelector = document.getElementsByClassName('holiday');
+
+    for (let index = 0; index < holidaySelector.length; index += 1) {
+        let day = holidaySelector[index];
+        if(day.style.background == ''){
+            day.style.background = 'white';
+        }
+        else{
+            day.style.background = ''
+        }
+    }
+}
+
+let buttonSelector = document.getElementById('btn-holiday')
+buttonSelector.addEventListener('click', holidayColor);
