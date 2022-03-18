@@ -55,28 +55,17 @@ function friday(sextaFeiraDoMes) {
     }
 }
 
-//Exercício 2
+//Exercício 2 e Exercício 4
 
 function buttonCreate(parent, nomeDoButton, nomeDaId) {
-    let buttonSelector = document.querySelector(parent);
+    let parentSelector = document.querySelector(parent);
     let buttonCreate = document.createElement('button');
     buttonCreate.innerText = nomeDoButton;
     buttonCreate.id = nomeDaId
-    buttonSelector.appendChild(buttonCreate);
+    parentSelector.appendChild(buttonCreate);
 }
 
 //Exercício 3
-
-
-
-//Execução das funções
-
-daysAndHoliday(2, [24, 25, 31]);
-friday([4, 11, 18, 25]);
-buttonCreate('.buttons-container', 'Feriados', 'btn-holiday');
-
-
-
 
 function holidayColor() {
     let holidaySelector = document.getElementsByClassName('holiday');
@@ -92,5 +81,15 @@ function holidayColor() {
     }
 }
 
-let buttonSelector = document.getElementById('btn-holiday')
+//Exercício 5
+
+
+
+//Execução das funções
+
+daysAndHoliday(2, [24, 25, 31]);
+friday([4, 11, 18, 25]);
+buttonCreate('.buttons-container', 'Feriados', 'btn-holiday');
+let buttonSelector = document.getElementById('btn-holiday');
 buttonSelector.addEventListener('click', holidayColor);
+buttonCreate('.buttons-container', 'Sexta-feira', 'btn-friday');
