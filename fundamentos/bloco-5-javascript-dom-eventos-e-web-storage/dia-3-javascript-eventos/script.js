@@ -72,10 +72,10 @@ function holidayColor() {
 
     for (let index = 0; index < holidaySelector.length; index += 1) {
         let day = holidaySelector[index];
-        if(day.style.background == ''){
+        if (day.style.background == '') {
             day.style.background = 'white';
         }
-        else{
+        else {
             day.style.background = ''
         }
     }
@@ -83,6 +83,31 @@ function holidayColor() {
 
 //Exercício 5
 
+function sextaFeiraDoMes() {
+    let fridaySelector = document.getElementsByClassName('friday');
+    let save = []
+
+    for (let index = 0; index < fridaySelector.length; index += 1) {
+        let texto = fridaySelector[index].innerText;
+        save.push(texto);
+    }
+
+    return save;
+}
+
+function sextaFeira() {
+    let fridaySelector = document.getElementsByClassName('friday');
+    
+    for (index = 0; index < dias.length; index += 1) {
+        let texto = fridaySelector[index].innerText;
+        if (texto == 'Sexta-feira') {
+            fridaySelector[index].innerText = dias[index];
+        }
+        else {
+            fridaySelector[index].innerText = 'Sexta-feira';
+        }
+    }
+}
 
 
 //Execução das funções
@@ -90,6 +115,11 @@ function holidayColor() {
 daysAndHoliday(2, [24, 25, 31]);
 friday([4, 11, 18, 25]);
 buttonCreate('.buttons-container', 'Feriados', 'btn-holiday');
-let buttonSelector = document.getElementById('btn-holiday');
-buttonSelector.addEventListener('click', holidayColor);
+let buttonHolidaySelector = document.getElementById('btn-holiday');
+buttonHolidaySelector.addEventListener('click', holidayColor);
 buttonCreate('.buttons-container', 'Sexta-feira', 'btn-friday');
+let buttonFridaySelector = document.getElementById('btn-friday');
+let dias = sextaFeiraDoMes();
+buttonFridaySelector.addEventListener('click', sextaFeira);
+
+
