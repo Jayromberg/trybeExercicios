@@ -97,7 +97,7 @@ function sextaFeiraDoMes() {
 
 function sextaFeira() {
     let fridaySelector = document.getElementsByClassName('friday');
-    
+
     for (index = 0; index < dias.length; index += 1) {
         let texto = fridaySelector[index].innerText;
         if (texto == 'Sexta-feira') {
@@ -109,6 +109,15 @@ function sextaFeira() {
     }
 }
 
+//Exercício 6
+
+function aumentarFonte(event) {
+    event.target.style.fontSize = '25px';
+}
+
+function diminuirFonte(event){
+    event.target.style.fontSize = '';
+}
 
 //Execução das funções
 
@@ -122,4 +131,9 @@ let buttonFridaySelector = document.getElementById('btn-friday');
 let dias = sextaFeiraDoMes();
 buttonFridaySelector.addEventListener('click', sextaFeira);
 
+let ulSelector = document.getElementsByClassName('day');
+for (index = 0; index < ulSelector.length; index += 1) {
+    ulSelector[index].addEventListener('mouseover', aumentarFonte);
+    ulSelector[index].addEventListener('mouseout', diminuirFonte);
+}
 
