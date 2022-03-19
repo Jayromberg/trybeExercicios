@@ -119,6 +119,15 @@ function diminuirFonte(event){
     event.target.style.fontSize = '';
 }
 
+//Exercício 7
+
+function minhasTarefas (tarefa){
+    let selecionador = document.querySelector('.my-tasks');
+    let criarSpan = document.createElement('span');
+    criarSpan.innerText = tarefa;
+    selecionador.appendChild(criarSpan);
+}
+
 //Execução das funções
 
 daysAndHoliday(2, [24, 25, 31]);
@@ -137,3 +146,4 @@ for (index = 0; index < ulSelector.length; index += 1) {
     ulSelector[index].addEventListener('mouseout', diminuirFonte);
 }
 
+minhasTarefas('cozinhar');
