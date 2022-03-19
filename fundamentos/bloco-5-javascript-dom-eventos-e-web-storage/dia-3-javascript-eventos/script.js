@@ -112,7 +112,7 @@ function sextaFeira() {
 //Exercício 6
 
 function aumentarFonte(event) {
-    event.target.style.fontSize = '25px';
+    event.target.style.fontSize = '30px';
 }
 
 function diminuirFonte(event){
@@ -126,6 +126,16 @@ function minhasTarefas (tarefa){
     let criarSpan = document.createElement('span');
     criarSpan.innerText = tarefa;
     selecionador.appendChild(criarSpan);
+}
+
+//Exercício 8
+
+function addCor (cor){
+    let selecionador = document.querySelector('.my-tasks');
+    let criarDiv = document.createElement('div');
+    criarDiv.className = 'task';
+    criarDiv.style.backgroundColor = cor;
+    selecionador.appendChild(criarDiv);
 }
 
 //Execução das funções
@@ -146,4 +156,5 @@ for (index = 0; index < ulSelector.length; index += 1) {
     ulSelector[index].addEventListener('mouseout', diminuirFonte);
 }
 
-minhasTarefas('cozinhar');
+minhasTarefas('Projeto:');
+addCor('blue');
