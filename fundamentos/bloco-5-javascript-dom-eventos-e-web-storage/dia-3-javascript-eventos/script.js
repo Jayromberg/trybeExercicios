@@ -115,13 +115,13 @@ function aumentarFonte(event) {
     event.target.style.fontSize = '30px';
 }
 
-function diminuirFonte(event){
+function diminuirFonte(event) {
     event.target.style.fontSize = '';
 }
 
 //Exercício 7
 
-function minhasTarefas (tarefa){
+function minhasTarefas(tarefa) {
     let selecionador = document.querySelector('.my-tasks');
     let criarSpan = document.createElement('span');
     criarSpan.innerText = tarefa;
@@ -130,12 +130,26 @@ function minhasTarefas (tarefa){
 
 //Exercício 8
 
-function addCor (cor){
+function addCor(cor) {
     let selecionador = document.querySelector('.my-tasks');
     let criarDiv = document.createElement('div');
+    let criarBr = document.createElement('br');
     criarDiv.className = 'task';
     criarDiv.style.backgroundColor = cor;
     selecionador.appendChild(criarDiv);
+    selecionador.appendChild(criarBr);
+}
+
+//Exercício 9
+
+function seletorTask(event) {
+    let seletorDoEvento = event.target.className
+    if (seletorDoEvento == 'task') {
+        event.target.className = 'task selected';
+    }
+    else {
+        event.target.className = 'task';
+    }
 }
 
 //Execução das funções
@@ -158,3 +172,11 @@ for (index = 0; index < ulSelector.length; index += 1) {
 
 minhasTarefas('Projeto:');
 addCor('blue');
+
+minhasTarefas('Projeto:');
+addCor('blue');
+
+let seletorClasseTask = document.getElementsByClassName('task');
+for (index2 = 0; index2 < seletorClasseTask.length; index2 += 1) {
+    seletorClasseTask[index2].addEventListener('click', seletorTask);
+}
