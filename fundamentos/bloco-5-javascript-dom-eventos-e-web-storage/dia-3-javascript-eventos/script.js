@@ -43,6 +43,8 @@ function daysAndHoliday(quantidadeDeDiasMesAnterior, diasDoFeriado) {
     }
 }
 
+daysAndHoliday(2, [24, 25, 31]);
+
 function friday(sextaFeiraDoMes) {
     let daySelector = document.getElementsByClassName('day');
     for (let index = 0; index < dezDaysList.length; index += 1) {
@@ -55,6 +57,8 @@ function friday(sextaFeiraDoMes) {
     }
 }
 
+friday([4, 11, 18, 25]);
+
 //Exercício 2 e Exercício 4
 
 function buttonCreate(parent, nomeDoButton, nomeDaId) {
@@ -64,6 +68,9 @@ function buttonCreate(parent, nomeDoButton, nomeDaId) {
     buttonCreate.id = nomeDaId
     parentSelector.appendChild(buttonCreate);
 }
+
+buttonCreate('.buttons-container', 'Feriados', 'btn-holiday');
+buttonCreate('.buttons-container', 'Sexta-feira', 'btn-friday');
 
 //Exercício 3
 
@@ -80,6 +87,9 @@ function holidayColor() {
         }
     }
 }
+
+let buttonHolidaySelector = document.getElementById('btn-holiday');
+buttonHolidaySelector.addEventListener('click', holidayColor);
 
 //Exercício 5
 
@@ -109,6 +119,10 @@ function sextaFeira() {
     }
 }
 
+let buttonFridaySelector = document.getElementById('btn-friday');
+let dias = sextaFeiraDoMes();
+buttonFridaySelector.addEventListener('click', sextaFeira);
+
 //Exercício 6
 
 function aumentarFonte(event) {
@@ -117,6 +131,12 @@ function aumentarFonte(event) {
 
 function diminuirFonte(event) {
     event.target.style.fontSize = '';
+}
+
+let ulSelector = document.getElementsByClassName('day');
+for (index = 0; index < ulSelector.length; index += 1) {
+    ulSelector[index].addEventListener('mouseover', aumentarFonte);
+    ulSelector[index].addEventListener('mouseout', diminuirFonte);
 }
 
 //Exercício 7
@@ -128,17 +148,19 @@ function minhasTarefas(tarefa) {
     selecionador.appendChild(criarSpan);
 }
 
+minhasTarefas('Projeto:');
+
 //Exercício 8
 
 function addCor(cor) {
     let selecionador = document.querySelector('.my-tasks');
     let criarDiv = document.createElement('div');
-    let criarBr = document.createElement('br');
     criarDiv.className = 'task';
     criarDiv.style.backgroundColor = cor;
     selecionador.appendChild(criarDiv);
-    selecionador.appendChild(criarBr);
 }
+
+addCor('green');
 
 //Exercício 9
 
@@ -150,6 +172,11 @@ function seletorTask(event) {
     else {
         event.target.className = 'task';
     }
+}
+
+let seletorClasseTask = document.getElementsByClassName('task');
+for (index2 = 0; index2 < seletorClasseTask.length; index2 += 1) {
+    seletorClasseTask[index2].addEventListener('click', seletorTask);
 }
 
 //Exercício 10
@@ -171,34 +198,23 @@ function marcarNoCalendario(event) {
 
 }
 
-//Execução das funções
-
-daysAndHoliday(2, [24, 25, 31]);
-friday([4, 11, 18, 25]);
-buttonCreate('.buttons-container', 'Feriados', 'btn-holiday');
-let buttonHolidaySelector = document.getElementById('btn-holiday');
-buttonHolidaySelector.addEventListener('click', holidayColor);
-buttonCreate('.buttons-container', 'Sexta-feira', 'btn-friday');
-let buttonFridaySelector = document.getElementById('btn-friday');
-let dias = sextaFeiraDoMes();
-buttonFridaySelector.addEventListener('click', sextaFeira);
-
-let ulSelector = document.getElementsByClassName('day');
-for (index = 0; index < ulSelector.length; index += 1) {
-    ulSelector[index].addEventListener('mouseover', aumentarFonte);
-    ulSelector[index].addEventListener('mouseout', diminuirFonte);
-}
-
-minhasTarefas('Projeto:');
-addCor('green');
-
-
-let seletorClasseTask = document.getElementsByClassName('task');
-for (index2 = 0; index2 < seletorClasseTask.length; index2 += 1) {
-    seletorClasseTask[index2].addEventListener('click', seletorTask);
-}
-
 let ulSelector2 = document.getElementsByClassName('day');
 for (index = 0; index < ulSelector2.length; index += 1) {
     ulSelector2[index].addEventListener('click', marcarNoCalendario);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
