@@ -152,6 +152,25 @@ function seletorTask(event) {
     }
 }
 
+//Exercício 10
+
+function marcarNoCalendario(event) {
+    let pai = document.getElementsByClassName('task selected');
+
+    if (pai.length > 0) {
+        let cor = pai[0].style.backgroundColor;
+        let paiDoDia = event.target.style.color;
+        event.target.style.color = cor;
+        if (paiDoDia !== '') {
+            event.target.style.color = '';
+        }
+    }
+    else {
+        alert('Selecionar tarefa!');
+    }
+
+}
+
 //Execução das funções
 
 daysAndHoliday(2, [24, 25, 31]);
@@ -171,12 +190,15 @@ for (index = 0; index < ulSelector.length; index += 1) {
 }
 
 minhasTarefas('Projeto:');
-addCor('blue');
+addCor('green');
 
-minhasTarefas('Projeto:');
-addCor('blue');
 
 let seletorClasseTask = document.getElementsByClassName('task');
 for (index2 = 0; index2 < seletorClasseTask.length; index2 += 1) {
     seletorClasseTask[index2].addEventListener('click', seletorTask);
+}
+
+let ulSelector2 = document.getElementsByClassName('day');
+for (index = 0; index < ulSelector2.length; index += 1) {
+    ulSelector2[index].addEventListener('click', marcarNoCalendario);
 }
