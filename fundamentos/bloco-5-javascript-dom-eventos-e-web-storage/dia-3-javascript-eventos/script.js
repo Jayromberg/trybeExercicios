@@ -125,19 +125,40 @@ buttonFridaySelector.addEventListener('click', sextaFeira);
 
 //Exercício 6
 
-function aumentarFonte(event) {
-    event.target.style.fontSize = '30px';
-}
+// function aumentarFonte(event) {
+//     event.target.style.fontSize = '30px';
+// }
 
-function diminuirFonte(event) {
-    event.target.style.fontSize = '';
-}
+// function diminuirFonte(event) {
+//     event.target.style.fontSize = '';
+// }
 
-let ulSelector = document.getElementsByClassName('day');
-for (index = 0; index < ulSelector.length; index += 1) {
-    ulSelector[index].addEventListener('mouseover', aumentarFonte);
-    ulSelector[index].addEventListener('mouseout', diminuirFonte);
-}
+// let ulSelector = document.getElementsByClassName('day');
+// for (index = 0; index < ulSelector.length; index += 1) {
+//     ulSelector[index].addEventListener('mouseover', aumentarFonte);
+//     ulSelector[index].addEventListener('mouseout', diminuirFonte);
+// }
+
+function dayMouseOver() {
+    let days = document.querySelector('#days');
+
+    days.addEventListener('mouseover', function (event) {
+        event.target.style.fontSize = '30px';
+        event.target.style.fontWeight = '600';
+    })
+};
+
+function dayMouseOut() {
+    let days = document.querySelector('#days');
+
+    days.addEventListener('mouseout', function (event) {
+        event.target.style.fontWeight = '200';
+        event.target.style.fontSize = '20px';
+    })
+};
+
+dayMouseOver();
+dayMouseOut();
 
 //Exercício 7
 
@@ -162,59 +183,114 @@ function addCor(cor) {
 
 addCor('green');
 
+// Erro, só seleciona o primeiro botão.
+// minhasTarefas('Projeto:');
+// addCor('green');
+
+
 //Exercício 9
 
-function seletorTask(event) {
-    let seletorDoEvento = event.target.className
-    if (seletorDoEvento == 'task') {
-        event.target.className = 'task selected';
-    }
-    else {
-        event.target.className = 'task';
-    }
-}
+// function seletorTask(event) {
+//     let seletorDoEvento = event.target.className
+//     if (seletorDoEvento == 'task') {
+//         event.target.className = 'task selected';
+//     }
+//     else {
+//         event.target.className = 'task';
+//     }
+// }
 
-let seletorClasseTask = document.getElementsByClassName('task');
-for (index2 = 0; index2 < seletorClasseTask.length; index2 += 1) {
-    seletorClasseTask[index2].addEventListener('click', seletorTask);
-}
+// let seletorClasseTask = document.getElementsByClassName('task');
+// for (index2 = 0; index2 < seletorClasseTask.length; index2 += 1) {
+//     seletorClasseTask[index2].addEventListener('click', seletorTask);
+// }
+
+function setTaskClass() {
+    let selectedTask = document.getElementsByClassName('task selected');
+    let myTasks = document.querySelector('.task');
+
+    myTasks.addEventListener('click', function (event) {
+        if (selectedTask.length === 0) {
+            event.target.className = 'task selected';
+        } else {
+            event.target.className = 'task';
+        }
+    });
+};
+
+setTaskClass();
 
 //Exercício 10
 
-function marcarNoCalendario(event) {
-    let pai = document.getElementsByClassName('task selected');
+// function marcarNoCalendario(event) {
+//     let pai = document.getElementsByClassName('task selected');
 
-    if (pai.length > 0) {
-        let cor = pai[0].style.backgroundColor;
-        let paiDoDia = event.target.style.color;
-        event.target.style.color = cor;
-        if (paiDoDia !== '') {
-            event.target.style.color = '';
+//     if (pai.length > 0) {
+//         let cor = pai[0].style.backgroundColor;
+//         let paiDoDia = event.target.style.color;
+//         event.target.style.color = cor;
+//         if (paiDoDia !== '') {
+//             event.target.style.color = '';
+//         }
+//     }
+//     else {
+//         alert('Selecionar tarefa!');
+//     }
+
+// }
+
+// let ulSelector2 = document.getElementsByClassName('day');
+// for (index = 0; index < ulSelector2.length; index += 1) {
+//     ulSelector2[index].addEventListener('click', marcarNoCalendario);
+// }
+
+function setDayColor() {
+    let selectedTask = document.getElementsByClassName('task selected');
+    let days = document.querySelector('#days');
+    let taskDiv = document.querySelector('.task');
+    let taskColor = taskDiv.style.backgroundColor;
+
+    days.addEventListener('click', function (event) {
+        let eventTargetColor = event.target.style.color;
+        if (selectedTask.length > 0 && eventTargetColor !== taskColor) {
+            let color = selectedTask[0].style.backgroundColor;
+            event.target.style.color = color;
+        } else if (eventTargetColor === taskColor && selectedTask.length !== 0) {
+            event.target.style.color = 'rgb(119,119,119)';
         }
-    }
-    else {
-        alert('Selecionar tarefa!');
-    }
+    });
+};
 
-}
+setDayColor();
 
-let ulSelector2 = document.getElementsByClassName('day');
-for (index = 0; index < ulSelector2.length; index += 1) {
-    ulSelector2[index].addEventListener('click', marcarNoCalendario);
-}
+//Bonus
 
+function addNewTask() {
+    let getInputField = document.querySelector('#task-input');
+    let addInputButton = document.querySelector('#btn-add');
+    let getTaskList = document.querySelector('.task-list');
 
+    addInputButton.addEventListener('click', function () {
+        if (getInputField.value.length > 0) {
+            let newLi = document.createElement('li');
+            newLi.innerText = getInputField.value;
 
+            getTaskList.appendChild(newLi);
+            getInputField.value = '';
+        } else {
+            alert('Error: Digite ao menos 1 caractere.');
+        }
+    })
 
+    getInputField.addEventListener('keyup', function (event) {
+        if (event.key === 'Enter' && getInputField.value.length > 0) {
+            let newLi = document.createElement('li');
+            newLi.innerText = getInputField.value;
 
+            getTaskList.appendChild(newLi);
+            getInputField.value = '';
+        }
+    });
+};
 
-
-
-
-
-
-
-
-
-
-
+addNewTask();
