@@ -40,10 +40,32 @@ const numberGenerator = () => {
 }
 
 const drawResult = (number) => {
-    if(numberGenerator() === number){
+    if (numberGenerator() === number) {
         return "Parabéns você ganhou";
     }
     return "Tente novamente";
 }
 
 console.log(drawResult(4));
+
+// Exercício 3
+
+const RIGHT_ANSWERS = ['A', 'C', 'B', 'D', 'A', 'A', 'D', 'A', 'D', 'C'];
+const STUDENT_ANSWERS = ['A', 'N.A', 'B', 'D', 'A', 'C', 'N.A', 'A', 'D', 'B'];
+
+const points = (element1, element2) => {
+    let result = 0;
+    for (let i = 0; i < element1.length; i += 1) {
+        if (element1[i] !== 'N.A' && element2[i] !== 'N.A' && element1[i] === element2[i]){
+            result += 1;
+        }
+        if (element1[i] !== 'N.A' && element2[i] !== 'N.A' && element1[i] !== element2[i]){
+            result -= 0.5;
+        }
+    }
+    return result;
+}
+
+const evaluator = (element1, element2, action) => console.log(action(element1, element2));
+
+evaluator(RIGHT_ANSWERS, STUDENT_ANSWERS, points);
