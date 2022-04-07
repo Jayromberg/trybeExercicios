@@ -43,3 +43,21 @@ const warriorDamage = () => {
   return damage;
 }
 
+const mageDamage = () => {
+  let mageIntelligence = mage.intelligence;
+  let mageMana = mage.mana;
+  if(mageMana > 15){
+    mageMana -= 15;
+    mage.mana = mageMana;
+  }
+  if(mageMana < 15){
+    return "Não possui mana suficiente";
+  }
+  const damage = {
+    dano: mageIntelligence * 2,
+    mana: mageMana,
+  }
+  return damage;
+}
+
+console.log(mageDamage());

@@ -14,24 +14,24 @@ doingThings(toSleep);
 
 // Exercício 1
 
-const users = (name, lastName) => {
+const users = (nameCompleto) => {
     const object = {
-        nomeCompleto: `${name} ${lastName}`,
-        email: `${name}_${lastName}@trybe.com`.toLowerCase(),
+        nomeCompleto: `${nameCompleto}`,
+        email: `${nameCompleto.replace(' ', '_')}@trybe.com`.toLowerCase(),
     };
     return object;
 }
 
-const newEmployees = () => {
+const newEmployees = (action) => {
     const employees = {
-        id1: users('Pedro', 'Guerra'), // Nome: Pedro Guerra -> Chame sua função passando o nome Pedro Guerra como parâmetro, substituindo as aspas
-        id2: users('Luiza', 'Drumond'), // Nome: Luiza Drumond -> Chame sua função passando o nome Luiza Drumond como parâmetro, substituindo as aspas
-        id3: users('Carla', 'Paiva'), // Nome: Carla Paiva -> Chame sua função passando o nome Carla Paiva como parâmetro, substituindo as aspas
+        id1: action('Pedro Guerra'), // Nome: Pedro Guerra -> Chame sua função passando o nome Pedro Guerra como parâmetro, substituindo as aspas
+        id2: action('Luiza Drumond'), // Nome: Luiza Drumond -> Chame sua função passando o nome Luiza Drumond como parâmetro, substituindo as aspas
+        id3: action('Carla Paiva'), // Nome: Carla Paiva -> Chame sua função passando o nome Carla Paiva como parâmetro, substituindo as aspas
     }
     return employees;
 };
 
-console.log(newEmployees());
+console.log(newEmployees(users));
 
 // Exercício 2
 
@@ -39,14 +39,14 @@ const numberGenerator = () => {
     return Math.round(Math.random() * 5);
 }
 
-const drawResult = (number) => {
-    if (numberGenerator() === number) {
+const drawResult = (number, action) => {
+    if (action() === number) {
         return "Parabéns você ganhou";
     }
     return "Tente novamente";
 }
 
-console.log(drawResult(4));
+console.log(drawResult(4, numberGenerator));
 
 // Exercício 3
 
