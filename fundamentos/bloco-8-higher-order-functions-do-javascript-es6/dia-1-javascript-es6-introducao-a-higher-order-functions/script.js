@@ -32,3 +32,18 @@ const newEmployees = () => {
 };
 
 console.log(newEmployees());
+
+// Exercício 2
+
+const numberGenerator = () => {
+    return Math.round(Math.random() * 5);
+}
+
+const drawResult = (number) => {
+    if(numberGenerator() === number){
+        return "Parabéns você ganhou";
+    }
+    return "Tente novamente";
+}
+
+console.log(drawResult(4));
