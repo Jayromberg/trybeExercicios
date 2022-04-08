@@ -23,39 +23,34 @@ const battleMembers = { mage, warrior, dragon };
 // Bonus 1
 
 const dragonDamage = () => {
-  let dragonStrength = dragon.strength;
-  let damage = Math.floor((Math.random() * dragonStrength) + 1);
-  if(damage < 15){
-    damage = 15;
-  }
+  let maxDmg = dragon.strength;
+  let minDmg = 15; 
+  let damage = Math.floor(Math.random() * (maxDmg - minDmg) ) + minDmg;
   return damage;
 }
 
 //Bonus 2
 
 const warriorDamage = () => {
-  let warriorStrength = warrior.strength;
-  let weaponDamage = warrior.weaponDmg;
-  let damage = Math.floor((Math.random() * (warriorStrength * weaponDamage)) + 1);
-  if(damage < warriorStrength){
-    damage = warriorStrength;
-  }
+  let minDmg = warrior.strength;
+  let maxDmg = minDmg * warrior.weaponDmg
+  let damage = Math.floor(Math.random() * (maxDmg - minDmg) ) + minDmg;
   return damage;
 }
 
+//Bonus 3
+
 const mageDamage = () => {
-  let mageIntelligence = mage.intelligence;
-  let mageMana = mage.mana;
-  if(mageMana > 15){
-    mageMana -= 15;
-    mage.mana = mageMana;
-  }
-  if(mageMana < 15){
-    return "Não possui mana suficiente";
+  let minDmg = mage.intelligence;
+  let maxDmg = minDmg * 2;
+  let randomDamage = Math.floor(Math.random() * (maxDmg - minDmg) ) + minDmg;
+  let SpentMana = 15;
+  if(mage.mana < 15){
+    return { dano: "Não possui mana suficiente", mana: 0 }
   }
   const damage = {
-    dano: mageIntelligence * 2,
-    mana: mageMana,
+    dano: randomDamage,
+    mana: SpentMana,
   }
   return damage;
 }
