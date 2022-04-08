@@ -40,10 +40,7 @@ const numberGenerator = () => {
 }
 
 const drawResult = (number, action) => {
-    if (action() === number) {
-        return "Parabéns você ganhou";
-    }
-    return "Tente novamente";
+    return action() === number ? "Parabéns você ganhou" : "Tente novamente";
 }
 
 console.log(drawResult(4, numberGenerator));
