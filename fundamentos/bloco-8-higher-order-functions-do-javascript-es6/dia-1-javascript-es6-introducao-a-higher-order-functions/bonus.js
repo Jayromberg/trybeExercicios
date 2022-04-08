@@ -49,10 +49,39 @@ const mageDamage = () => {
     return { dano: "Não possui mana suficiente", mana: 0 }
   }
   const damage = {
-    dano: randomDamage,
-    mana: SpentMana,
+    damage: randomDamage,
+    mana: mage.mana - SpentMana,
   }
   return damage;
 }
 
-console.log(mageDamage());
+//Bonus 4
+
+const gameActions = {
+  // Crie as HOFs neste objeto.
+  warriorAction: (warriorDamage) => { 
+    let dragonHealthPoints = dragon.healthPoints;
+    let damage = warriorDamage();
+    let turn = dragonHealthPoints - damage;
+    let objectTurnDragon = {
+      healthPoints: turn,
+    }
+    let objectTurnWarrior = {
+      damage: damage,
+    }
+    Object.assign(dragon, objectTurnDragon);
+    Object.assign(warrior, objectTurnWarrior);
+  },
+  mageAction: (mageDamage) => {
+    let dragonHealthPoints = dragon.healthPoints;
+    let damage = mageDamage();
+    let turn = dragonHealthPoints - damage.damage;
+    let objectTurnDragon = {
+      healthPoints: turn,
+    }
+    Object.assign(dragon, objectTurnDragon);
+    Object.assign(mage, damage);
+  }
+  
+};
+
