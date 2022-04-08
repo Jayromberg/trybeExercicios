@@ -63,20 +63,6 @@ const books = [
 
 // Adicione o código do exercício aqui:
 
-// const expectedResult = {
-//     author: {
-//         birthYear: 1948,
-//         name: 'George R. R. Martin',
-//     },
-//     genre: 'Fantasia',
-//     id: 1,
-//     name: 'As Crônicas de Gelo e Fogo',
-//     releaseYear: 1991,
-// };
+books.sort((a, b) => b.releaseYear - a.releaseYear);
 
-function getNamedBook() {
-    let book = books.find((id) => id.name.length === 26);
-    return book;
-};
-
-console.log(getNamedBook());
+console.log(books);
