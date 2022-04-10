@@ -63,11 +63,11 @@ const books = [
 
 // Adicione o código do exercício aqui:
 
-const expectedResult = false;
+const expectedResult = true;
 
-function everyoneWasBornOnSecXX() {
-   let authorBirthYear =  books.every((id) => id.author.birthYear > 2000 ? true : false);
-   return authorBirthYear;
+function someBookWasReleaseOnThe80s() {
+    let releaseYear = books.some((id) => id.releaseYear >= 1980 && id.releaseYear < 1990);
+    return releaseYear;
 }
 
-console.log(everyoneWasBornOnSecXX());
+console.log(someBookWasReleaseOnThe80s());

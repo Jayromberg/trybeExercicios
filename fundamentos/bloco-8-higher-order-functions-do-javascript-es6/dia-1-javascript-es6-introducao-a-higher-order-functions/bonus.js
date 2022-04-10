@@ -1,7 +1,7 @@
 const mage = {
   healthPoints: 130,
   intelligence: 45,
-  mana: 125,
+  mana: 25,
   damage: undefined,
 };
 
@@ -22,8 +22,8 @@ const battleMembers = { mage, warrior, dragon };
 
 // Bonus 1
 
-const dragonDamage = () => {
-  let maxDmg = dragon.strength;
+const dragonDamage = (objeto) => {
+  let maxDmg = objeto.strength;
   let minDmg = 15; 
   let damage = Math.floor(Math.random() * (maxDmg - minDmg) ) + minDmg;
   return damage;
@@ -31,26 +31,26 @@ const dragonDamage = () => {
 
 //Bonus 2
 
-const warriorDamage = () => {
-  let minDmg = warrior.strength;
-  let maxDmg = minDmg * warrior.weaponDmg
+const warriorDamage = (objeto) => {
+  let minDmg = objeto.strength;
+  let maxDmg = minDmg * objeto.weaponDmg
   let damage = Math.floor(Math.random() * (maxDmg - minDmg) ) + minDmg;
   return damage;
 }
 
 //Bonus 3
 
-const mageDamage = () => {
-  let minDmg = mage.intelligence;
+const mageDamage = (objeto) => {
+  let minDmg = objeto.intelligence;
   let maxDmg = minDmg * 2;
   let randomDamage = Math.floor(Math.random() * (maxDmg - minDmg) ) + minDmg;
   let SpentMana = 15;
-  if(mage.mana < 15){
-    return { dano: "Não possui mana suficiente", mana: 0 }
+  if(objeto.mana < 15){
+    return  { damage: "Não possui mana suficiente", mana: objeto.mana }
   }
-  const damage = {
+  let damage = {
     damage: randomDamage,
-    mana: mage.mana - SpentMana,
+    mana: objeto.mana - SpentMana,
   }
   return damage;
 }
@@ -59,9 +59,9 @@ const mageDamage = () => {
 
 const gameActions = {
   // Crie as HOFs neste objeto.
-  warriorAction: (warriorDamage) => { 
-    let dragonHealthPoints = dragon.healthPoints;
-    let damage = warriorDamage();
+  warriorAction: () => { 
+    let dragonHealthPoints = battleMembers.dragon.healthPoints;
+    let damage = warriorDamage(battleMembers.warrior);
     let turn = dragonHealthPoints - damage;
     let objectTurnDragon = {
       healthPoints: turn,
@@ -72,16 +72,56 @@ const gameActions = {
     Object.assign(dragon, objectTurnDragon);
     Object.assign(warrior, objectTurnWarrior);
   },
-  mageAction: (mageDamage) => {
-    let dragonHealthPoints = dragon.healthPoints;
-    let damage = mageDamage();
+  mageAction: () => {
+    let dragonHealthPoints = battleMembers.dragon.healthPoints;;
+    let damage = mageDamage(battleMembers.mage);
     let turn = dragonHealthPoints - damage.damage;
+    typeof damage.damage == 'string' ? turn = dragonHealthPoints : turn;
+    let objectTurnMage = {
+      mana: damage.mana,
+      damage: damage.damage,
+    }
     let objectTurnDragon = {
       healthPoints: turn,
     }
     Object.assign(dragon, objectTurnDragon);
-    Object.assign(mage, damage);
-  }
-  
+    Object.assign(mage, objectTurnMage);
+  },
+  dragonAction: () => {
+    let warriorHealthPoints = battleMembers.warrior.healthPoints;
+    let mageHealthPoints = battleMembers.mage.healthPoints;
+    let damage = dragonDamage(battleMembers.dragon);
+    let turnWarrior = warriorHealthPoints - damage;
+    let turnMage = mageHealthPoints - damage;
+    let objectTurnWarrior = {
+      healthPoints: turnWarrior,
+    } 
+    let objectTurnMage = {
+      healthPoints: turnMage,
+    }
+    let objectTurnDragon = {
+      damage: damage,
+    }
+    Object.assign(warrior, objectTurnWarrior);
+    Object.assign(mage, objectTurnMage);
+    Object.assign(dragon, objectTurnDragon);
+  },
+  return: () => battleMembers,
 };
+
+gameActions.warriorAction();
+gameActions.mageAction();
+gameActions.dragonAction();
+console.log(gameActions.return());
+
+gameActions.warriorAction();
+gameActions.mageAction();
+gameActions.dragonAction();
+console.log(gameActions.return());
+
+gameActions.warriorAction();
+gameActions.mageAction();
+gameActions.dragonAction();
+console.log(gameActions.return());
+
 
