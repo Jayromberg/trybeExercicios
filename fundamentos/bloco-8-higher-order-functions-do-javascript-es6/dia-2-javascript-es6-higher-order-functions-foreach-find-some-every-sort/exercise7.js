@@ -66,11 +66,18 @@ const books = [
 const expectedResult = false;
 
 function authorUnique() {
-    let array = [];
-    let count = 0;
-    books.forEach((id) => array.push(id.author.birthYear));
-    array.every((id) => )
-    return count;
+    // let array = [];
+    // let count = 0;
+    // books.forEach((id) => array.push(id.author.birthYear));
+    // return array;
+
+    return books.every((book) =>
+        !books.some((bookSome) =>
+            (bookSome.author.birthYear === book.author.birthYear)
+            && (bookSome.author.name !== book.author.name)
+        )
+    );
+
 }
 
 console.log(authorUnique());
