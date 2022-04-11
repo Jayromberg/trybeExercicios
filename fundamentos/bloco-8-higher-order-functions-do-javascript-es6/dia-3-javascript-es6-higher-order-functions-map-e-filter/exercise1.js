@@ -63,21 +63,17 @@ const books = [
 
 // Adicione o código do exercício aqui:
 
-const expectedResult = false;
+const expectedResult = [
+    'As Crônicas de Gelo e Fogo - Fantasia - George R. R. Martin',
+    'O Senhor dos Anéis - Fantasia - J. R. R. Tolkien',
+    'Fundação - Ficção Científica - Isaac Asimov',
+    'Duna - Ficção Científica - Frank Herbert',
+    'A Coisa - Terror - Stephen King',
+    'O Chamado de Cthulhu - Terror - H. P. Lovecraft',
+];
 
-function authorUnique() {
-    // let array = [];
-    // let count = 0;
-    // books.forEach((id) => array.push(id.author.birthYear));
-    // return array;
+function formatedBookNames(objeto) {
+   return objeto.map((item) => `${item.name} - ${item.genre} - ${item.author.name}`)
+};
 
-    return books.every((book) =>
-        !books.some((bookSome) =>
-            (bookSome.author.birthYear === book.author.birthYear)
-            && (bookSome.author.name !== book.author.name)
-        )
-    );
-
-}
-
-console.log(authorUnique());
+console.log(formatedBookNames(books));

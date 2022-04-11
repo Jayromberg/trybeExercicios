@@ -63,21 +63,34 @@ const books = [
 
 // Adicione o código do exercício aqui:
 
-const expectedResult = false;
+const expectedResult = [
+    {
+      id: 6,
+      name: 'O Chamado de Cthulhu',
+      genre: 'Terror',
+      author: { name: 'H. P. Lovecraft', birthYear: 1890 },
+      releaseYear: 1928,
+    },
+    {
+      id: 3,
+      name: 'Fundação',
+      genre: 'Ficção Científica',
+      author: { name: 'Isaac Asimov', birthYear: 1920 },
+      releaseYear: 1951,
+    },
+    {
+      id: 2,
+      name: 'O Senhor dos Anéis',
+      genre: 'Fantasia',
+      author: { name: 'J. R. R. Tolkien', birthYear: 1892 },
+      releaseYear: 1954,
+    },
+  ];
+  
+  function oldBooksOrdered(book) {
+    const info = book.filter((item) => (2022 - item.releaseYear > 60));
+    info.sort((a, b) => a.releaseYear - b.releaseYear);
+    return info;
+  };
 
-function authorUnique() {
-    // let array = [];
-    // let count = 0;
-    // books.forEach((id) => array.push(id.author.birthYear));
-    // return array;
-
-    return books.every((book) =>
-        !books.some((bookSome) =>
-            (bookSome.author.birthYear === book.author.birthYear)
-            && (bookSome.author.name !== book.author.name)
-        )
-    );
-
-}
-
-console.log(authorUnique());
+  console.log(oldBooksOrdered(books));

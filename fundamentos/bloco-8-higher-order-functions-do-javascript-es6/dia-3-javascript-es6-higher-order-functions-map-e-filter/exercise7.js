@@ -61,23 +61,16 @@ const books = [
     },
 ];
 
-// Adicione o código do exercício aqui:
+  // Adicione o código do exercício aqui:
 
-const expectedResult = false;
+const expectedResult = 'O Senhor dos Anéis';
 
-function authorUnique() {
-    // let array = [];
-    // let count = 0;
-    // books.forEach((id) => array.push(id.author.birthYear));
-    // return array;
+function authorWith3DotsOnName(book) {
+    const livro =  book.filter((item) => {
+        if (item.author.name[1] === '.' && item.author.name[4] === '.' && item.author.name[7] === '.') {
+            return item;
+        }});
+    return livro[0].name;
+};
 
-    return books.every((book) =>
-        !books.some((bookSome) =>
-            (bookSome.author.birthYear === book.author.birthYear)
-            && (bookSome.author.name !== book.author.name)
-        )
-    );
-
-}
-
-console.log(authorUnique());
+console.log(authorWith3DotsOnName(books));

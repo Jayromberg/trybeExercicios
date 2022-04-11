@@ -63,21 +63,40 @@ const books = [
 
 // Adicione o código do exercício aqui:
 
-const expectedResult = false;
+const expectedResult = [
+    {
+        age: 31,
+        author: 'Isaac Asimov',
+    },
+    {
+        age: 38,
+        author: 'H. P. Lovecraft',
+    },
+    {
+        age: 39,
+        author: 'Stephen King',
+    },
+    {
+        age: 43,
+        author: 'George R. R. Martin',
+    },
+    {
+        age: 45,
+        author: 'Frank Herbert',
+    },
+    {
+        age: 62,
+        author: 'J. R. R. Tolkien',
+    },
+];
 
-function authorUnique() {
-    // let array = [];
-    // let count = 0;
-    // books.forEach((id) => array.push(id.author.birthYear));
-    // return array;
-
-    return books.every((book) =>
-        !books.some((bookSome) =>
-            (bookSome.author.birthYear === book.author.birthYear)
-            && (bookSome.author.name !== book.author.name)
-        )
-    );
-
+function nameAndAge(book) {
+    const info = book.map((item) => ({
+        age: (item.releaseYear - item.author.birthYear),
+        author: item.author.name,
+    }));
+    info.sort((a, b) => a.age - b.age);
+    return info;
 }
 
-console.log(authorUnique());
+console.log(nameAndAge(books));
