@@ -28,8 +28,6 @@ const people = [
 
 // escreva filterPeople abaixo
 
-console.log(people[1].name)
-
 people.filter(({ name, bornIn, nationality }) => {
     if (nationality === 'Australian' && bornIn > 1990 && bornIn <= 2000) console.log(name); 
 });
