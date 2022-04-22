@@ -55,7 +55,7 @@ const books = [
     genre: 'Terror',
     author: {
       name: 'H. P. Lovecraft',
-      birthYear: 1890,
+      birthYear: 1947,
     },
     releaseYear: 1928,
   },
@@ -63,24 +63,35 @@ const books = [
 
 // Adicione o código do exercício aqui:
 
-function authorBornIn1947(birthYear) {
-  let book = books.find((id) => id.author.birthYear === birthYear);
-  let author = book.author.name;
-  return author;
+// function authorBornIn1947(birthYear) {
+//   let book = books.find((id) => id.author.birthYear === birthYear);
+//   let author = book.author.name;
+//   return author;
+// }
+
+// console.log(authorBornIn1947(1947));
+
+// const musicas = [
+//   { id: '31031685', title: 'Partita in C moll BWV 997' },
+//   { id: '31031686', title: 'Toccata and Fugue, BWV 565' },
+//   { id: '31031687', title: 'Chaconne, Partita No. 2 BWV 1004' },
+// ]
+
+// function findMusic(id) {
+//   // Adicione seu código aqui
+//   let title =  musicas.find((music) => music.id === id).title
+//   return title;
+// }
+
+// console.log(findMusic('31031685'))
+
+function authorBornIn1947Reduce(book) {
+  return book.reduce(((acc, occ) => {
+    if (occ.author.birthYear === 1947 && acc === '') {
+      acc = occ.author.name
+    }
+    return acc;
+  }), '');
 }
 
-console.log(authorBornIn1947(1947));
-
-const musicas = [
-  { id: '31031685', title: 'Partita in C moll BWV 997' },
-  { id: '31031686', title: 'Toccata and Fugue, BWV 565' },
-  { id: '31031687', title: 'Chaconne, Partita No. 2 BWV 1004' },
-]
-
-function findMusic(id) {
-  // Adicione seu código aqui
-  let title =  musicas.find((music) => music.id === id).title
-  return title;
-}
-
-console.log(findMusic('31031685'))
+console.log(authorBornIn1947Reduce(books));
