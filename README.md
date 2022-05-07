@@ -33,7 +33,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 4-2: _JavaScript - Array e loop For_
 - [x] 4-3: _JavaScript - Lógica de Programação e Algoritmos_
 - [x] 4-4: _JavaScript - Objetos e funções_
-- [x] 4-5: _[Projeto - Playground Functions](https://github.com/tryber/sd-021-b-project-playground-functions)_
+- [x] 4-5: _[Projeto - Playground Functions](https://github.com/tryber/sd-021-b-project-playground-functions/pull/64)_
 
 ##### Bloco 5: Introdução - JavaScript - Projetos
 
@@ -41,11 +41,11 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 5-2: _JavaScript - Trabalhando com elementos_
 - [x] 5-3: _JavaScript - Eventos_
 - [x] 5-4: _JavaScript - Web Storage_
-- [x] 5-5: _[Projeto - Meme Generator]()_
-- [x] 5-6: _[Projeto - Arte com Pixels]()_
-- [x] 5-7: _[Projeto - Lista de tarefas]()_
-- [x] 5-7: _[Projeto - Adivinhe a Cor]()_
-- [x] 5-7: _[Projeto - Carta Misteriosa]()_
+- [x] 5-5: _[Projeto - Meme Generator](https://github.com/tryber/sd-021-b-project-meme-generator/pull/35)_
+- [x] 5-6: _[Projeto - Arte com Pixels](https://github.com/tryber/sd-021-b-project-pixels-art/pull/98)_
+- [x] 5-7: _[Projeto - Lista de tarefas](https://github.com/tryber/sd-021-b-project-todo-list/pull/65)_
+- [x] 5-7: _[Projeto - Adivinhe a Cor](https://github.com/tryber/sd-021-b-project-color-guess/pull/7)_
+- [x] 5-7: _[Projeto - Carta Misteriosa](https://github.com/tryber/sd-021-b-project-mistery-letter/pull/7)_
 
 ##### Bloco 6: HTML & CSS avançado
 
@@ -54,14 +54,14 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 6-3: _CSS Flexbox - Part 1_
 - [x] 6-4: _CSS Flexbox - Part 2_
 - [x] 6-5: _CSS Responsivo - Mobile First_
-- [x] 6-6: _[Projeto - Página inicial do Facebook]()_
+- [x] 6-6: _[Projeto - Trybewarts](https://github.com/tryber/sd-021-b-project-trybewarts/pull/105)_
 
 ##### Bloco 7: JavaScript ES6 & Testes Unitários
 
 - [x] 7-1: _JavaScript ES6 - let, const, arrow functions e template literals_
-- [x] 7-2: _JavaScript ES6 - Objects_
-- [x] 7-3: _Testes unitários em JavaScript_
-- [x] 7-4: _[Projeto - JavaScript Testes Unitários]()_
+- [x] 7-2: _JavaScript ES6 - Fluxo de exceção e Objetos_
+- [x] 7-3: _Primeiros passos em Jest_
+- [x] 7-4: _[Projeto - JavaScript Testes Unitários](https://github.com/tryber/sd-021-b-project-js-unit-tests/pull/88)_
 
 ##### Bloco 8: JavaScript ES6
 
@@ -70,7 +70,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 8-3: _JavaScript ES6 - Higher Order Functions - map e filter_
 - [x] 8-4: _JavaScript ES6 - Higher Order Functions - reduce_
 - [x] 8-5: _JavaScript ES6 - spread operator, parâmetro rest, destructuring e mais_
-- [x] 8-5: _[Projeto - Zoo functions](https://github.com/tryber/sd-021-b-project-zoo-functions/pull/77)_
+- [x] 8-6: _[Projeto - Zoo functions](https://github.com/tryber/sd-021-b-project-zoo-functions/pull/77)_
 
 ##### Bloco 9: Assincronicidade & Callbacks
 
